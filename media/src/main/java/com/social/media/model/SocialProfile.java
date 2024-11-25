@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Objects;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -17,4 +19,9 @@ public class SocialProfile {
 
     @OneToOne
     private SocialUser user;
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(id);
+    }
 }
