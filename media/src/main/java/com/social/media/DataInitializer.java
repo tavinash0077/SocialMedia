@@ -55,7 +55,7 @@ public class DataInitializer {
            groupRepository.save(group1);
            groupRepository.save(group2);
 
-           //associate user with group
+           //associate user with groups
            user1.getGroups().add(group1);
            user2.getGroups().add(group2);
            user2.getGroups().add(group1);
