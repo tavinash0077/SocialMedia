@@ -17,10 +17,10 @@ public class SocialUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "user" ,cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "user" ,cascade = {CascadeType.PERSIST , CascadeType.MERGE, CascadeType.REMOVE})
     private SocialProfile socialProfile;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST , CascadeType.MERGE, CascadeType.REMOVE})
     private List<Post> posts = new ArrayList<>();
 
     @ManyToMany
@@ -38,6 +38,7 @@ public class SocialUser {
 
     public void setSocialProfile(SocialProfile socialProfile){
         socialProfile.setUser(this);
+        this.socialProfile =   socialProfile ;
     }
 
 }

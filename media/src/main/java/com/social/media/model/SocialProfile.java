@@ -28,4 +28,11 @@ public class SocialProfile {
     public int hashCode(){
         return Objects.hash(id);
     }
+
+    public void setSocialProfile(SocialUser socialUser){
+        this.user  = socialUser;
+        if(user.getSocialProfile() != this){
+            user.setSocialProfile(this);
+        }
+    }
 }

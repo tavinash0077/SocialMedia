@@ -66,3 +66,26 @@ MERGE: Merge changes from the parent entity to the related entities.
 REMOVE: Delete the related entities when the parent entity is deleted.
 REFRESH: Refresh the state of related entities when the parent entity is refreshed.
 ALL: Apply all cascading operations.
+
+
+
+5.    {
+          "id": 4,
+          "socialProfile": null,
+          "posts": [],
+          "groups": []
+      },
+
+      we are getting social profile as null.
+      And why is this custom setter needed.
+
+      So the custom setter method in the user like social user entity is for setting the profile is important
+
+      because it is maintaining.
+
+      It is being used for maintaining the consistency on both the sides of the bidirectional relationship
+
+      in the memory.
+
+ => cascade = CascadeType.PERSIST =>> it handles the saving of entitiees, but it does not update the existing oncee
+    -----------------------------
