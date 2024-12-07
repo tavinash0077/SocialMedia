@@ -23,7 +23,7 @@ public class SocialUser {
     @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST , CascadeType.MERGE, CascadeType.REMOVE})
     private List<Post> posts = new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany()
     @JoinTable(
             name = "user_group",
             joinColumns = @JoinColumn(name = "user_id"),

@@ -89,3 +89,56 @@ ALL: Apply all cascading operations.
 
  => cascade = CascadeType.PERSIST =>> it handles the saving of entitiees, but it does not update the existing oncee
     -----------------------------
+
+
+
+=> fetch type-> fetch type plays a crucial role in defining how and when related entities are loaded from
+                Database in relation to parent activity.
+
+FetchType.LAZY -One is lazy and this is also known as lazy loading.
+
+                This is when the entities are not loaded immediately with the parent entity.
+
+                Instead, they are loaded on demand, which means they are only loaded when they are accessed for the
+
+                first time in the code, and this approach is useful in improving the performance, especially when
+
+                the related entities are not needed immediately.
+FetchType.EAGER -Eager Fetching:
+
+                 Related entities are loaded simultaneously with the parent entity.
+                 Useful when the related entities are immediately required after loading the parent entity.
+                 Can cause performance issues if unnecessary related data is loaded.
+                 Example: In a one-to-many relationship between Customer and Order, if fetch = FetchType.EAGER is used, all orders related to a customer are loaded along with the customer, even if they are not needed.
+                 Lazy Fetching:
+
+                 Related entities are not loaded with the parent entity initially.
+                 Data in child entities is loaded only when explicitly accessed.
+                 Useful when the related data might not always be required or when you want to load it on demand.
+                 Example: In the same one-to-many relationship, if fetch = FetchType.LAZY is used, the orders are not fetched when the customer is retrieved but are loaded only when accessed explicitly.
+                 Performance Considerations:
+
+                 Eager fetching can lead to unnecessary memory usage if related data is not required.
+                 Lazy fetching avoids loading unnecessary data but might result in additional queries if related data is accessed multiple times.
+                 Default Fetch Types:
+
+                 One-to-Many: Default is Lazy.
+                 Many-to-One: Default is Eager.
+                 Many-to-Many: Default is Lazy.
+                 One-to-One: Default is Eager.
+                 When to Use:
+
+                 Use Eager Fetching when the related entities are always needed with the parent.
+                 Use Lazy Fetching when the related entities are rarely needed or should be loaded only on demand.
+                 These points summarize the key aspects of fetch types and their impact on application performance.
+
+
+
+
+
+
+
+
+
+
+
